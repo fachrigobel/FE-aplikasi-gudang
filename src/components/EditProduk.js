@@ -1,10 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const EditProduk = () => {
   const { id } = useParams();
-  const [produk, setProduk] = useState({});
+  const [produk, setProduk] = useState({
+    nama_produk: "",
+  });
   const navigate = useNavigate();
 
   useEffect(() => {
