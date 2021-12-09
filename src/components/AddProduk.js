@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const AddProduk = () => {
   const [produk, setProduk] = useState("");
   const navigate = useNavigate();
+  document.title = "Tambah Produk | Aplikasi Gudang";
 
   const saveProduk = async (event) => {
     event.preventDefault();

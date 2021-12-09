@@ -17,6 +17,7 @@ const EditProduk = () => {
 
   const getProdukDetails = async (id) => {
     const response = await axios.get(`http://localhost:8080/produk/${id}`);
+    document.title = `${response.data.nama_produk} | Aplikasi Gudang`;
     return setProduk(response.data);
   };
 

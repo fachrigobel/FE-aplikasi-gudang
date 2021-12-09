@@ -8,6 +8,7 @@ const ListProduk = () => {
 
   const getProduk = async () => {
     const produkList = await axios.get("http://localhost:8080/produk");
+    document.title = "Home | Aplikasi Gudang";
     return setProduk(produkList.data);
   };
 
