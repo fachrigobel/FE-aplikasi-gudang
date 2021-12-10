@@ -1,29 +1,27 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { getProduk } from "../Functions/resfulAPI";
 
 import axios from "axios";
 
 const ListProduk = () => {
   const [produk, setProduk] = useState([]);
 
-  const getProduk = async () => {
-    const produkList = await axios.get("http://localhost:8080/produk");
-    document.title = "Home | Aplikasi Gudang";
-    return setProduk(produkList.data);
-  };
-
   const deleteProduk = async (id) => {
     await axios.delete(`http://localhost:8080/produk/${id}`);
-    getProduk();
+    setProduk(await getProduk());
   };
 
-  useEffect(() => getProduk(), []);
+  useEffect(async () => {
+    document.title = "List Produk | Aplikasi Gudang";
+    setProduk(await getProduk());
+  }, []);
 
   const produkTable = (
     <table className="table">
       <thead>
         <tr>
-          <th scope="col">No.</th>
+          <th scope="col">#</th>
           <th scope="col">ID Produk</th>
           <th scope="col">Nama Produk</th>
           <th scope="col">Created At</th>
@@ -33,7 +31,7 @@ const ListProduk = () => {
       </thead>
       <tbody>
         {produk.map((p, index) => (
-          <tr key={index}>
+          <tr key={p.id_produk}>
             <th scope="row">{++index}</th>
             <td>{p.id_produk}</td>
             <td>{p.nama_produk}</td>
@@ -41,7 +39,7 @@ const ListProduk = () => {
             <td>{p.updated_at}</td>
             <td>
               <Link
-                to={`/edit/${p.id_produk}`}
+                to={`/produk/edit/${p.id_produk}`}
                 className="btn btn-warning btn-sm mx-1"
               >
                 Edit
@@ -64,7 +62,7 @@ const ListProduk = () => {
     <div className="listProduk">
       <div className="row">
         <div className="col-6">
-          <Link to="/add" className="btn btn-primary">
+          <Link to="/produk/add" className="btn btn-primary">
             Tambah Produk Baru
           </Link>
         </div>

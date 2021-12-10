@@ -30,7 +30,7 @@ const EditProduk = () => {
 
     await axios.patch(`http://localhost:8080/produk/${id}`, data);
 
-    navigate("/");
+    navigate("/produk");
   };
 
   return (

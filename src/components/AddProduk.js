@@ -16,7 +16,7 @@ const AddProduk = () => {
 
     await axios.post("http://localhost:8080/produk", data);
 
-    navigate("/");
+    navigate("/produk");
   };
 
   return (

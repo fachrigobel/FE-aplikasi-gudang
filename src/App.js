@@ -1,36 +1,32 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import AddProduk from "./components/AddProduk";
 import EditProduk from "./components/EditProduk";
 import ListProduk from "./components/ListProduk";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
 
 function App() {
   return (
-    <Router>
-      <div className="container-fluid">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <div className="container">
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <Link to="/" className="nav-link">
-                    Home
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+    <Fragment>
+      <Router>
+        <Navbar />
+        <h1 className="text-center mb-4 mt-5 pt-5">
+          Aplikasi Gudang John Smith
+        </h1>
+        <hr />
         <div className="container">
-          <h1 className="text-center my-4">Aplikasi Gudang John Smith</h1>
           <Routes>
-            <Route path="/" element={<ListProduk />} />
-            <Route path="/add" element={<AddProduk />} />
-            <Route path="/edit/:id" element={<EditProduk />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/produk" element={<ListProduk />} />
+            <Route path="/produk/add" element={<AddProduk />} />
+            <Route path="/produk/edit/:id" element={<EditProduk />} />
           </Routes>
         </div>
-      </div>
-    </Router>
+      </Router>
+      <Footer />
+    </Fragment>
   );
 }
 
