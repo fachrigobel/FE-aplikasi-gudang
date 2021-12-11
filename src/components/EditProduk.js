@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const EditProduk = () => {
@@ -55,6 +55,9 @@ const EditProduk = () => {
             <button type="submit" className="btn btn-primary">
               Update Produk
             </button>
+            <Link to={"/produk"} className="btn btn-danger ms-2">
+              Batal
+            </Link>
           </form>
         </div>
       </div>

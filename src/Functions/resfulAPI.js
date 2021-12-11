@@ -5,4 +5,15 @@ const getProduk = async () => {
   return produkList.data;
 };
 
-export { getProduk };
+const getProdukIn = async () => {
+  const produkInList = await axios.get("http://localhost:8080/produkin");
+  return produkInList.data;
+};
+
+const getProdukOut = async () => {
+  const produkOutList = await axios.get("http://localhost:8080/produkout");
+  console.log(produkOutList.data);
+  return produkOutList.data;
+};
+
+export { getProduk, getProdukIn, getProdukOut };

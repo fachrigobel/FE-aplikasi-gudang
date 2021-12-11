@@ -43,12 +43,12 @@ const Navbar = () => {
                     <Link to={"/produk"} className="dropdown-item">
                       Produk List
                     </Link>
-                    <a className="dropdown-item" href="#">
-                      Produk Out
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    <Link to={"/produkin"} className="dropdown-item">
                       Produk In
-                    </a>
+                    </Link>
+                    <Link to={"/produkout"} className="dropdown-item">
+                      Produk Out
+                    </Link>
                   </li>
                 </ul>
               </li>

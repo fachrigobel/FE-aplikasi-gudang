@@ -6,6 +6,10 @@ import ListProduk from "./components/ListProduk";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
+import ListProdukIn from "./components/produk_in/ListProdukIn";
+import AddProdukIn from "./components/produk_in/AddProdukIn";
+import EditProdukIn from "./components/produk_in/EditProdukIn";
+import ListProdukOut from "./components/produk_out/ListProdukOut";
 
 function App() {
   return (
@@ -22,6 +26,12 @@ function App() {
             <Route path="/produk" element={<ListProduk />} />
             <Route path="/produk/add" element={<AddProduk />} />
             <Route path="/produk/edit/:id" element={<EditProduk />} />
+
+            <Route path="/produkin" element={<ListProdukIn />} />
+            <Route path="/produkin/add" element={<AddProdukIn />} />
+            <Route path="/produkin/edit/:id" element={<EditProdukIn />} />
+
+            <Route path="/produkout" element={<ListProdukOut />} />
           </Routes>
         </div>
       </Router>
