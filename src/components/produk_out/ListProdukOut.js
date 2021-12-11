@@ -3,10 +3,15 @@ import { useEffect, useState } from "react";
 import { getProdukOut } from "../../functions/resfulAPI";
 import { Link } from "react-router-dom";
 
+import axios from "axios";
+
 const ListProdukOut = () => {
   const [produkOut, setProdukOut] = useState([]);
 
-  const deleteProdukOut = (id) => {};
+  const deleteProdukOut = async (id) => {
+    await axios.delete(`http://localhost:8080/produkout/${id}`);
+    setProdukOut(await getProdukOut());
+  };
 
   useEffect(async () => {
     setProdukOut(await getProdukOut());
@@ -18,21 +23,21 @@ const ListProdukOut = () => {
         <tr>
           <th scope="col">#</th>
           <th scope="col">ID Produk</th>
-          <th scope="col">Tanggal Keluar</th>
+          <th scope="col">Tanggal keluar</th>
           <th scope="col">Jumlah</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         {produkOut.map((p, index) => (
-          <tr key={p.id_produk}>
+          <tr key={p.id}>
             <th scope="row">{++index}</th>
             <td>{p.id_produk}</td>
             <td>{p.tanggal_keluar}</td>
             <td>{p.jumlah}</td>
             <td>
               <Link
-                to={`/produkIn/edit/${p.id_produk}`}
+                to={`/produkout/edit/${p.id}`}
                 className="btn btn-warning btn-sm mx-1"
               >
                 Edit
@@ -40,7 +45,7 @@ const ListProdukOut = () => {
               <button
                 type="submit"
                 className="btn btn-danger btn-sm mx-1"
-                onClick={() => deleteProdukOut(p.id_produk)}
+                onClick={() => deleteProdukOut(p.id)}
               >
                 Hapus
               </button>

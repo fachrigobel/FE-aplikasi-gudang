@@ -10,6 +10,8 @@ import ListProdukIn from "./components/produk_in/ListProdukIn";
 import AddProdukIn from "./components/produk_in/AddProdukIn";
 import EditProdukIn from "./components/produk_in/EditProdukIn";
 import ListProdukOut from "./components/produk_out/ListProdukOut";
+import AddProdukOut from "./components/produk_out/AddProdukOut";
+import EditProdukOut from "./components/produk_out/EditProdukOut";
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
             <Route path="/produkin/edit/:id" element={<EditProdukIn />} />
 
             <Route path="/produkout" element={<ListProdukOut />} />
+            <Route path="/produkout/add" element={<AddProdukOut />} />
+            <Route path="/produkout/edit/:id" element={<EditProdukOut />} />
           </Routes>
         </div>
       </Router>

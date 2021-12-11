@@ -12,7 +12,6 @@ const getProdukIn = async () => {
 
 const getProdukOut = async () => {
   const produkOutList = await axios.get("http://localhost:8080/produkout");
-  console.log(produkOutList.data);
   return produkOutList.data;
 };
 

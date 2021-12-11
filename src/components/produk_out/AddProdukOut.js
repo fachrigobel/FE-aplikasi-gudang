@@ -3,37 +3,37 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getProduk } from "../../functions/resfulAPI";
 
-const AddProdukIn = () => {
+const AddProdukOut = () => {
   const [idProduk, setIdProduk] = useState("");
   const [jumlah, setJumlah] = useState(0);
   const [produk, setProduk] = useState([]);
   const navigate = useNavigate();
-  document.title = "Tambah Produk Masuk | Aplikasi Gudang";
+  document.title = "Tambah Produk Keluar | Aplikasi Gudang";
 
   useEffect(async () => {
     setProduk(await getProduk());
   }, []);
 
-  const saveProdukIn = async (event) => {
+  const saveProdukOut = async (event) => {
     event.preventDefault();
     const date = new Date();
 
     const data = {
       id_produk: idProduk,
-      tanggal_masuk: date,
+      tanggal_keluar: date,
       jumlah: jumlah,
     };
 
-    await axios.post("http://localhost:8080/produkin", data);
+    await axios.post("http://localhost:8080/produkout", data);
 
-    navigate("/produkin");
+    navigate("/produkout");
   };
 
   return (
     <div className="add-produk">
       <div className="row">
         <div className="col">
-          <form onSubmit={saveProdukIn}>
+          <form onSubmit={saveProdukOut}>
             <div className="mb-3">
               <label htmlFor="id_produk" className="form-label">
                 Produk
@@ -64,7 +64,7 @@ const AddProdukIn = () => {
               />
             </div>
             <button type="submit" className="btn btn-primary">
-              Tambah Produk Masuk
+              Tambah Produk Keluar
             </button>
           </form>
         </div>
@@ -73,4 +73,4 @@ const AddProdukIn = () => {
   );
 };
 
-export default AddProdukIn;
+export default AddProdukOut;
