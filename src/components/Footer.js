@@ -17,9 +17,16 @@ const Footer = () => {
             </div>
             <div className="col">
               <div className="row">
-                <h4 className="mb-3">Follow Me</h4>
+                <h4 className="mb-3">Find Me</h4>
                 <a
-                  href="https://instagram.com/fachrigobel"
+                  href="https://fachrigobel.github.io/"
+                  target="_blank"
+                  className="link-light text-decoration-none"
+                >
+                  My Portfolio
+                </a>
+                <a
+                  href="https://www.instagram.com/fachrigobel/"
                   target="_blank"
                   className="link-light text-decoration-none"
                 >

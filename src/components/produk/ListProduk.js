@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getProduk } from "../Functions/resfulAPI";
+import { getProduk } from "../../functions/resfulAPI";
 
 import axios from "axios";
 

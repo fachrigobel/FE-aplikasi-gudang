@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import AddProduk from "./components/AddProduk";
-import EditProduk from "./components/EditProduk";
-import ListProduk from "./components/ListProduk";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AddProduk from "./components/produk/AddProduk";
+import EditProduk from "./components/produk/EditProduk";
+import ListProduk from "./components/produk/ListProduk";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./components/Home";

@@ -39,7 +39,7 @@ const AddProdukOut = () => {
                 Produk
               </label>
               <select
-                class="form-select"
+                className="form-select"
                 aria-label="Default select example"
                 onChange={(event) => setIdProduk(event.target.value)}
               >
